@@ -5,6 +5,138 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## 0.1.0 (2026-10-13)
+
+
+### ⚠ BREAKING CHANGES
+
+* TaxInfo.is_honeypot and can_sell changed from bool to Optional[bool]. Default is now None (unverified/unknown) instead of False/True. SecurityReport.is_safe treats unknown as unsafe. Callers using truthy checks (if tax.is_honeypot) will behave differently since None is also falsy — all internal callers updated to use explicit 'is True' / 'is None' / 'is False'.
+* **release:** WEB3_API_KEY now mandatory to start the API server. AgentConfig.governor active by default with conservative spend limits.
+
+### Features
+
+* add airdrop executor layer — real browser automation ([765c224](https://github.com/teraus111/web3-agent-kit-solana-trading/commit/765c224451cdb1ec2178ce9d807c51449b43ccc5))
+* add all platform executors + plugin system + docs ([9e77f66](https://github.com/teraus111/web3-agent-kit-solana-trading/commit/9e77f66d890e72f3d957de1ccca2f1e124ffa4ee))
+* add centralized execution policy ([#29](https://github.com/teraus111/web3-agent-kit-solana-trading/issues/29)) ([bc251f1](https://github.com/teraus111/web3-agent-kit-solana-trading/commit/bc251f1d00482a60936352fbfdde303e0906b875))
+* add CLI tool —  command for terminal usage ([c71ea19](https://github.com/teraus111/web3-agent-kit-solana-trading/commit/c71ea19683536b6beec0aa96c428c97332ee7590))
+* add comprehensive airdrop automation module ([0bdcd2c](https://github.com/teraus111/web3-agent-kit-solana-trading/commit/0bdcd2c47f27cd4b426d94e27ccd3d3247390da3))
+* add LLM integration + Uniswap V2 swap ([4ae9c28](https://github.com/teraus111/web3-agent-kit-solana-trading/commit/4ae9c2814f7773b93343f9fb4a7af5f1cfb2a452))
+* add MCP server scaffold with 5 tools, promotion drafts, and comparison blog ([e066d1e](https://github.com/teraus111/web3-agent-kit-solana-trading/commit/e066d1e2624cebc0983c06250883663b72032335))
+* add more examples + update README ([a21e3a5](https://github.com/teraus111/web3-agent-kit-solana-trading/commit/a21e3a512513937777202e05371b5551d23c6923))
+* add REST API (FastAPI) with Swagger docs ([6fb495a](https://github.com/teraus111/web3-agent-kit-solana-trading/commit/6fb495a86acfb5d30dc9bf59412418a849dafac9))
+* add Robinhood Chain network configuration ([e811a3a](https://github.com/teraus111/web3-agent-kit-solana-trading/commit/e811a3a5071dc063128d8b03a3e574e88b44ac30))
+* add Telegram bot showcase + Show HN + blog post ([1691361](https://github.com/teraus111/web3-agent-kit-solana-trading/commit/16913614275906ce618a93e61b8b2cf8c5f3ee2c))
+* add token sniper, portfolio dashboard, bridge agent ([8477e0b](https://github.com/teraus111/web3-agent-kit-solana-trading/commit/8477e0b7bbefac67e80f55d49a49a276e4343ef8))
+* **examples:** add bounded Insight PriorSeal conformance spike ([#90](https://github.com/teraus111/web3-agent-kit-solana-trading/issues/90)) ([12d7f9f](https://github.com/teraus111/web3-agent-kit-solana-trading/commit/12d7f9f97279a1e220e31a0baaf40a1e66d648b2))
+* **execution:** enforce a single pre-sign authorization gate ([#69](https://github.com/teraus111/web3-agent-kit-solana-trading/issues/69)) ([5dba3f6](https://github.com/teraus111/web3-agent-kit-solana-trading/commit/5dba3f6ec73d0725e3528667aada2da879f7f529))
+* initial scaffold — Web3 Agent Kit ([586851d](https://github.com/teraus111/web3-agent-kit-solana-trading/commit/586851d6d7bc2890920b93113ddc350feee556ab))
+* introduce immutable transaction intents ([#28](https://github.com/teraus111/web3-agent-kit-solana-trading/issues/28)) ([4796f2a](https://github.com/teraus111/web3-agent-kit-solana-trading/commit/4796f2ae4d2697f2b944d2591d22be92b55e1e37))
+* publish redesigned documentation landing page ([#46](https://github.com/teraus111/web3-agent-kit-solana-trading/issues/46)) ([e55ea99](https://github.com/teraus111/web3-agent-kit-solana-trading/commit/e55ea9961f0971c8d1b2f6c3e12c5fee9cee0722))
+* redesign documentation site theme ([#45](https://github.com/teraus111/web3-agent-kit-solana-trading/issues/45)) ([ea348f1](https://github.com/teraus111/web3-agent-kit-solana-trading/commit/ea348f11ecf74cd0700d1caa47357164e3431a5b))
+* Solana module — client, wallet, Jupiter DEX, NFT (45 tests) ([8dc4332](https://github.com/teraus111/web3-agent-kit-solana-trading/commit/8dc4332aa55e85dda1b8df83d4daabb7b3372fff))
+* v0.4.0 — Yield Optimizer, Multi-Wallet Manager, Plugin System ([9428d4b](https://github.com/teraus111/web3-agent-kit-solana-trading/commit/9428d4b6c53a436eebcad32c51f22afece6a5dee))
+* v0.5.0 — DCA Bot + Telegram Bot Template ([c193775](https://github.com/teraus111/web3-agent-kit-solana-trading/commit/c1937753ee41e02436cbd85c747b3083c8b14d13))
+* v0.6.0 — Gas Optimizer, Wallet Watcher, Approval Manager ([b012ba7](https://github.com/teraus111/web3-agent-kit-solana-trading/commit/b012ba74b62424900e15d7abf0f99e4d417ff198))
+* v1.1.0 — airdrop automation suite ([67dd02b](https://github.com/teraus111/web3-agent-kit-solana-trading/commit/67dd02b7bcf796fef5b8c7d723d7a191a21f33e6))
+* v1.11.0 — DEX Aggregator + NFT tests + changelog ([7fce891](https://github.com/teraus111/web3-agent-kit-solana-trading/commit/7fce8913a3d7d8513a65b282710db7b33e2dfba1))
+* v1.2.0 — security module ([2d5c230](https://github.com/teraus111/web3-agent-kit-solana-trading/commit/2d5c23026590c27bd1ed0c0755428df647c92b5c))
+* v1.3.0 — real execution layer ([922903b](https://github.com/teraus111/web3-agent-kit-solana-trading/commit/922903b9486c975c4946ce199937fd2a956aa910))
+* v1.4.0 — MEV, NFT, Notifications ([f1dcd50](https://github.com/teraus111/web3-agent-kit-solana-trading/commit/f1dcd50c1ccab774c13e6cbcf439cd111542c7bd))
+* v1.7.0 — restaking module, major refactor, 252 new tests ([086d0f3](https://github.com/teraus111/web3-agent-kit-solana-trading/commit/086d0f30211805cedc08c06215a1a70f5f9016c9))
+* v1.8.0 — Aave V3, Curve, UniswapV3, 169 new tests ([7f63aaa](https://github.com/teraus111/web3-agent-kit-solana-trading/commit/7f63aaa4c0a4992dd4a6b2522590123c02822415))
+* **wallet:** implement Wallet.from_keystore for standard Ethereum keystore files ([f5f9879](https://github.com/teraus111/web3-agent-kit-solana-trading/commit/f5f98793e283f8c6a9ef6d72ef0f8474708af751))
+* yield auto-compound strategy — Aave, Compound, ERC-4626 ([ca48831](https://github.com/teraus111/web3-agent-kit-solana-trading/commit/ca48831d59e02be2582bf633fac59bce6268ccb0))
+
+
+### Bug Fixes
+
+* add httpx2 dependency for FastAPI TestClient ([926ef56](https://github.com/teraus111/web3-agent-kit-solana-trading/commit/926ef56b5aca2256ddcae521d14280b0da1731f6))
+* add hypothesis to CI dependencies for fuzz tests ([f5e01b3](https://github.com/teraus111/web3-agent-kit-solana-trading/commit/f5e01b386927ba2c5d4430d7016600c5a331639f))
+* add id-token write permissions for PyPI trusted publisher ([fce66c4](https://github.com/teraus111/web3-agent-kit-solana-trading/commit/fce66c4e226ee49a944a36e91d82ae2a9af005c6))
+* add pytest-asyncio to CI ([d25c807](https://github.com/teraus111/web3-agent-kit-solana-trading/commit/d25c8077690c8dd322ca93d2342005ae0e2b9573))
+* add timeouts to CI workflow to prevent hanging ([5b896c3](https://github.com/teraus111/web3-agent-kit-solana-trading/commit/5b896c35ac0bd6214fc0666d4dfdc20fc81164b1))
+* address critical security audit findings ([b78b41e](https://github.com/teraus111/web3-agent-kit-solana-trading/commit/b78b41e56b6fce7cc5e19d35e916ae48c8b0d7d7))
+* **agent:** repair governor integration and enable safe defaults ([1eed58e](https://github.com/teraus111/web3-agent-kit-solana-trading/commit/1eed58e89dd19eaffd201e877fc2fda0bf8eafc7))
+* align pydantic core lock version ([#91](https://github.com/teraus111/web3-agent-kit-solana-trading/issues/91)) ([76b84d0](https://github.com/teraus111/web3-agent-kit-solana-trading/commit/76b84d0bd31af007aca223404b2c4a210047b626))
+* **api:** enforce authentication, fail-closed startup, and harden wallet endpoints ([ed9cf40](https://github.com/teraus111/web3-agent-kit-solana-trading/commit/ed9cf40c258b0965d84aacab545971e68c4d5446))
+* bump runtime __version__ to 1.11.0 ([016955a](https://github.com/teraus111/web3-agent-kit-solana-trading/commit/016955a855f227e6add3737757d1a836952bc4b0))
+* CI — install solders, base58, spl-token for Solana tests ([b28235c](https://github.com/teraus111/web3-agent-kit-solana-trading/commit/b28235c137f8a6867522af7df9462ad7f25c66f5))
+* CI workflow — use requirements.txt, fix matrix quotes ([5d3c9eb](https://github.com/teraus111/web3-agent-kit-solana-trading/commit/5d3c9ebfb870c27e10d6516eabbb4e6a6fc6aa72))
+* **cli:** bump the version pin Release Please left behind, sync docs to 1.18.1 ([b7a8c06](https://github.com/teraus111/web3-agent-kit-solana-trading/commit/b7a8c06a76c2324439e56727e4929220d0647a94))
+* correct imports in portfolio, bridge, sniper modules ([32761eb](https://github.com/teraus111/web3-agent-kit-solana-trading/commit/32761ebbe1e95126c63aaadc30c857536aa720a3))
+* correct misleading comment about encrypted PK in multi_wallet.py ([f5d0657](https://github.com/teraus111/web3-agent-kit-solana-trading/commit/f5d0657f87177a66068411d3d7b72530857d15ca))
+* correct spl-token dep → solana (solana-py includes spl.token) ([105dd78](https://github.com/teraus111/web3-agent-kit-solana-trading/commit/105dd78cebd57ac4fd60f15de7bc7db1f38d3d5b))
+* **execution:** close the three P0 signing gaps and bind call identity ([#73](https://github.com/teraus111/web3-agent-kit-solana-trading/issues/73)) ([a1471cb](https://github.com/teraus111/web3-agent-kit-solana-trading/commit/a1471cbba4190be8b4edeea389465cbbdb7b24e3))
+* **execution:** make the module invocation warning-free ([#76](https://github.com/teraus111/web3-agent-kit-solana-trading/issues/76)) ([6e3f227](https://github.com/teraus111/web3-agent-kit-solana-trading/commit/6e3f227b9b07007f498c582186e72f1275dd762c))
+* **execution:** scope signer-surface exclusions to the scan root ([#78](https://github.com/teraus111/web3-agent-kit-solana-trading/issues/78)) ([a8d16cc](https://github.com/teraus111/web3-agent-kit-solana-trading/commit/a8d16cc98c9c9b437a34a2db4b8b55763cd35066))
+* harden swap_exact_output — require amount_in_max and recipient ([d9f5897](https://github.com/teraus111/web3-agent-kit-solana-trading/commit/d9f5897f7a2f3aec2772aba45bd221aca3733ea3))
+* honeypot/tax check no longer fail-open — use Optional[bool] with 3-state semantics ([89b4e2b](https://github.com/teraus111/web3-agent-kit-solana-trading/commit/89b4e2bc09c2373bbf6d8fc03a1439c9e3f662b1))
+* lazy import solders in wallet module for CI compat ([563cff3](https://github.com/teraus111/web3-agent-kit-solana-trading/commit/563cff3693b576b93f0aeeb75b3b640d93cf5f9e))
+* mock gas price API calls in tests to prevent CI timeout ([abb657d](https://github.com/teraus111/web3-agent-kit-solana-trading/commit/abb657d3cf858ccabf704787b2c1169127e3794c))
+* notification enum identity — re-export from utils to fix CI ([13bd03e](https://github.com/teraus111/web3-agent-kit-solana-trading/commit/13bd03e92ec9fdc669394a11b8f2a74bb2260d4f))
+* portfolio test assertion ([9894658](https://github.com/teraus111/web3-agent-kit-solana-trading/commit/9894658bdc91b73556a986d836eed5f05e091859))
+* **priorseal:** 1.18.5 — provenance audit fixes + live P1 boundaries ([79d6b1b](https://github.com/teraus111/web3-agent-kit-solana-trading/commit/79d6b1ba1720a15073c99d913038b68bbe1afd6a))
+* remove broken badge, add coverage back ([3f76760](https://github.com/teraus111/web3-agent-kit-solana-trading/commit/3f76760d10c3526696152797ad9d83d19c9316c5))
+* remove broken subagent tests, keep simulator tests ([6efd264](https://github.com/teraus111/web3-agent-kit-solana-trading/commit/6efd264e0083502663a8ccc15d657ff115b7d4ad))
+* remove personal data from examples ([ffc6e4c](https://github.com/teraus111/web3-agent-kit-solana-trading/commit/ffc6e4cbdb0aa31f1f878300f2092239dbc39127))
+* skip browser tests when playwright not installed ([2ac485a](https://github.com/teraus111/web3-agent-kit-solana-trading/commit/2ac485a6e7b8864c2c9ef9cb680ed35a19645f6a))
+* SpendGovernor raises ValueError when require_confirm=True without confirm_fn ([300349d](https://github.com/teraus111/web3-agent-kit-solana-trading/commit/300349d1ece024627ad87ae97555826729f3026e))
+* spl-token → spl.token (correct PyPI package name) ([363810e](https://github.com/teraus111/web3-agent-kit-solana-trading/commit/363810e6abba5a6bd429b3046b1ebade60aaa1d7))
+* strip line numbers from README, clean up coverage badge ([754adc7](https://github.com/teraus111/web3-agent-kit-solana-trading/commit/754adc70d46f3795c09dcd081cbfe69335a30ceb))
+* update coverage badge 58%→31% ([f842498](https://github.com/teraus111/web3-agent-kit-solana-trading/commit/f84249887fe0c240ff5a87fcaae8348d6aef1bb9))
+* update Scorecard to v2.4.3, restrict CI permissions ([43046de](https://github.com/teraus111/web3-agent-kit-solana-trading/commit/43046dec7b579a8588a649fd7cce43da07749777))
+* use cyclonedx_py requirements subcommand ([5c237ff](https://github.com/teraus111/web3-agent-kit-solana-trading/commit/5c237ff9371d50c427c3a36bfcc47eafb78ff199))
+* use Scorecard tag instead of SHA, fix Release-please params ([57ce27c](https://github.com/teraus111/web3-agent-kit-solana-trading/commit/57ce27c03a4fa4115e5dc64e96371b9972dcedd1))
+* use tags not SHA in Scorecard workflow ([a5711db](https://github.com/teraus111/web3-agent-kit-solana-trading/commit/a5711dbce647a3327263df0f610198413b67c7b9))
+* wire AgentConfig.confirm_fn to SpendGovernor + protect against unknown tx_value ([8f9e86b](https://github.com/teraus111/web3-agent-kit-solana-trading/commit/8f9e86b321ddcbcfe1591444cca0da80b374e258))
+* wire API wallet routes correctly ([#25](https://github.com/teraus111/web3-agent-kit-solana-trading/issues/25)) ([85a0dd6](https://github.com/teraus111/web3-agent-kit-solana-trading/commit/85a0dd64580740b625d176761079ec7fb330445a))
+
+
+### Documentation
+
+* add CLI tool usage to README ([73c964f](https://github.com/teraus111/web3-agent-kit-solana-trading/commit/73c964f2e2ed35c014479cf5088bf68a6ee30153))
+* add mkdocs documentation site with API reference ([cb0fa18](https://github.com/teraus111/web3-agent-kit-solana-trading/commit/cb0fa18576e28c1d9c0a73a576033b8d31d2f1bd))
+* add PyPI badge to README ([6af8bba](https://github.com/teraus111/web3-agent-kit-solana-trading/commit/6af8bba4b3ec54f4ce93e50043cdd716d0c66380))
+* add REST API server reference page ([576e17d](https://github.com/teraus111/web3-agent-kit-solana-trading/commit/576e17dbec977ab4789537c7416d5033495c4357))
+* add ROADMAP.md with public status of all phases ([ac0c55b](https://github.com/teraus111/web3-agent-kit-solana-trading/commit/ac0c55b6fbac6e5d03983479554bea90aecfae0d))
+* add security-model.md, 3 architecture decision records, and 3 good-first-issue labels ([a0a9d28](https://github.com/teraus111/web3-agent-kit-solana-trading/commit/a0a9d281dc24df7d29becc40b8209469231c3c35))
+* align feature scope and maturity ([27fb7d0](https://github.com/teraus111/web3-agent-kit-solana-trading/commit/27fb7d06fa75bd3d67391c976d6dfbc5f53d26fa))
+* fix 5 sync issues for v1.10.0 — changelog, contributing, defi Aave/Curve, examples ([2fae4d9](https://github.com/teraus111/web3-agent-kit-solana-trading/commit/2fae4d99b8024b0a6eb742ccb12c65242a05b84f))
+* fix README discrepancies from audit ([5d43bb7](https://github.com/teraus111/web3-agent-kit-solana-trading/commit/5d43bb71663464a29d9935823f2e14301a4ed31c))
+* governance — CODEOWNERS, DCO, RISKS.md, versioning, fuzz tests, SECURITY.md upgrade ([4026136](https://github.com/teraus111/web3-agent-kit-solana-trading/commit/402613669987a46023840d05f4ddb6fffb7308fa))
+* improve responsive design — 6 breakpoints (375px to 1400px+), mobile-first feature cards, touch-friendly buttons, accessible focus states, print styles ([436a0d8](https://github.com/teraus111/web3-agent-kit-solana-trading/commit/436a0d806c2242266688bff02a8850ecfcc060a6))
+* punchy quickstart (5 lines), add PyPI downloads badge ([a94817a](https://github.com/teraus111/web3-agent-kit-solana-trading/commit/a94817a0c63b012597369ae4a4357d337bed6ef6))
+* redesign landing page — hero gradient, feature grid cards, stats bar, tabbed code blocks, custom purple theme ([bc6f4e0](https://github.com/teraus111/web3-agent-kit-solana-trading/commit/bc6f4e04d2f983c92b0b69c5d119945f2ca8a31b))
+* refresh README demo and release metadata ([faaa823](https://github.com/teraus111/web3-agent-kit-solana-trading/commit/faaa823a28337e0169515663194cb96f54e51397))
+* refresh README project banner ([fdf0bdd](https://github.com/teraus111/web3-agent-kit-solana-trading/commit/fdf0bdda26de69513b727c20e3f868871c7b7bae))
+* restore verified coverage metric ([e888abe](https://github.com/teraus111/web3-agent-kit-solana-trading/commit/e888abe819bb4c687e364f39794a250e96a69d55))
+* switch coverage badge to Codecov (auto-updating) ([69bddcc](https://github.com/teraus111/web3-agent-kit-solana-trading/commit/69bddccd78feb49822d770dae3b255ffd244b0a0))
+* sync all version surfaces to 1.18.0 ([0995964](https://github.com/teraus111/web3-agent-kit-solana-trading/commit/0995964645c96895cf2b12846a695209f3933e4e))
+* sync GitHub Pages content to v1.12.0 ([184e4f7](https://github.com/teraus111/web3-agent-kit-solana-trading/commit/184e4f7cb3e7dcef17f09abfab3d70a1023c452a))
+* sync safety and project status ([6c9eb68](https://github.com/teraus111/web3-agent-kit-solana-trading/commit/6c9eb68f5dc7f49b1c4b3d280cd3177ab80d7784))
+* sync test count to 1,225 and document from_keystore + default governor (v1.14.0) ([4ad3c53](https://github.com/teraus111/web3-agent-kit-solana-trading/commit/4ad3c534f397adc8aba29259ad70e4154a5efbe5))
+* sync v1.16.1 project statistics ([#44](https://github.com/teraus111/web3-agent-kit-solana-trading/issues/44)) ([d343b9c](https://github.com/teraus111/web3-agent-kit-solana-trading/commit/d343b9cc2af98f5594c51fcf5a5d7e2654b01404))
+* sync v1.16.2 release metadata ([cdab7ab](https://github.com/teraus111/web3-agent-kit-solana-trading/commit/cdab7aba3fd4a99f62fdec01addcc3fd2c5d2f33))
+* sync version badge to v1.15.0 on docs homepage ([73204be](https://github.com/teraus111/web3-agent-kit-solana-trading/commit/73204be3a2ffb7aaef816b9f57f98dc7e3cc486a))
+* sync version references to v1.13.0 ([5ed4174](https://github.com/teraus111/web3-agent-kit-solana-trading/commit/5ed4174cd615e4a891a44ef6625e3ca10b7daf9a))
+* update architecture diagram, comparison table, and pain points for v1.6.0 — add MEV, NFT, security, airdrop, CLI, trading modules ([34353fe](https://github.com/teraus111/web3-agent-kit-solana-trading/commit/34353fefcda1655f65e321309ccbcbfc816083a4))
+* update CHANGELOG for v0.4.0 ([c66cfd3](https://github.com/teraus111/web3-agent-kit-solana-trading/commit/c66cfd381bc5728d21bd2fd523ed96d2546d0d9f))
+* update docs for v1.6.0 — CLI tool, airdrop, security, MEV, NFT, trading modules + GitHub Pages deploy workflow ([7b538b0](https://github.com/teraus111/web3-agent-kit-solana-trading/commit/7b538b0ee90b6054e27ffb15a2e4b3b3e4c355c6))
+* update GitHub Pages — v1.9.0 stats, 6 new module cards, API stubs, changelog, architecture diagram ([2961894](https://github.com/teraus111/web3-agent-kit-solana-trading/commit/296189436a2431b8a2bc01f0829096964e2fab68))
+* update readme contact to [@teraus111](https://github.com/teraus111) ([ae5acca](https://github.com/teraus111/web3-agent-kit-solana-trading/commit/ae5accaf8d064906a7c79d20b7b4273dd0780b55))
+* update README for v1.2.0 ([d7d2a46](https://github.com/teraus111/web3-agent-kit-solana-trading/commit/d7d2a464d6b1bea5b5bb1dcc53708ac8fb1bfc73))
+* update README for v1.7.0 — restaking module, updated stats ([2a4cdd2](https://github.com/teraus111/web3-agent-kit-solana-trading/commit/2a4cdd2a04c9c54a22c8289bd70224532c033745))
+* update site links to custom domain web3agentkit.site ([18aaf89](https://github.com/teraus111/web3-agent-kit-solana-trading/commit/18aaf8993ea26d794d3d458fcb97eab61d82ac98))
+* update stats to 27 modules, 1,033 tests (v1.10.0) ([af0f9a2](https://github.com/teraus111/web3-agent-kit-solana-trading/commit/af0f9a24e5f6cb1c77b077e5eef1e058e12f8f5b))
+* update website URL to vercel, add website badge ([2fe414f](https://github.com/teraus111/web3-agent-kit-solana-trading/commit/2fe414f3d5b5eeaff1b183701de44af3bf242821))
+* use Vercel project URL for website link ([#41](https://github.com/teraus111/web3-agent-kit-solana-trading/issues/41)) ([bcff98d](https://github.com/teraus111/web3-agent-kit-solana-trading/commit/bcff98d93f409cd7d824ef958bbfdb2c6a83f83f))
+* v1.9.0 — README updated (23 modules, 991 tests, 115 files, 32K LOC) ([21912ae](https://github.com/teraus111/web3-agent-kit-solana-trading/commit/21912aeeb209827de0e3d1f26933ab1c2330b96e))
+
+
+### Miscellaneous Chores
+
+* **release:** bump version to 1.14.0, update changelogs and README ([eff2d5e](https://github.com/teraus111/web3-agent-kit-solana-trading/commit/eff2d5ef481c17946567d7ef576eb498867ceedf))
+
 ## [Unreleased]
 
 ### Changed
