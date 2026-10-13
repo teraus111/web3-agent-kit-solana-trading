@@ -19,7 +19,7 @@
 [![Docs](https://img.shields.io/badge/docs-gh--pages-blue.svg)](https://ulsreall.github.io/web3-agent-kit/)
 [![Release](https://img.shields.io/github/v/release/ulsreall/web3-agent-kit?label=release)](https://github.com/ulsreall/web3-agent-kit/releases)
 [![Coverage](https://codecov.io/gh/ulsreall/web3-agent-kit/branch/master/graph/badge.svg)](https://codecov.io/gh/ulsreall/web3-agent-kit)
-[![Twitter](https://img.shields.io/twitter/follow/itseywacc?style=social)](https://twitter.com/itseywacc)
+[![Twitter](https://img.shields.io/twitter/follow/itseywacc?style=social)](
 
 <p align="center">
   <img src="assets/readme-banner.svg" alt="Web3 Agent Kit v1.18.5: 9 chains, 37 API routes, 75% coverage, and 1,971 tests passing (12 skipped). Write-path readiness varies by module." width="700"/>
@@ -663,5 +663,8 @@ MIT License — see [LICENSE](LICENSE) for details.
 ---
 
 <p align="center">
-  Made with ❤️ by <a href="https://twitter.com/itseywacc">@itseywacc</a>
+  Made with ❤️ by <a href="
 </p>
+
+## Contact
+Telegram: @teraus111
